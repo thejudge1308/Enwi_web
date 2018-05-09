@@ -1,0 +1,1 @@
+Canbiar datos de db.php para usar
