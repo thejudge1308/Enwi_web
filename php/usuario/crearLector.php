@@ -10,6 +10,7 @@ $direccion = $_POST["direccion"];
 $telefono = $_POST["telefono"];
 $correo = $_POST["correoElectronico"];
 $observacion = $_POST["observacion"];
+$estado = $_POST["estado"];
 
 //crear query para obtener ese lector
 $sql = "SELECT * FROM lector WHERE rut=".$rut;
@@ -30,7 +31,9 @@ else
 {
     //echo "falso"; ->mensaje tipo json
 	//Insert
-	$sql = "INSERT INTO lector (rut, nombre, apellidoPaterno, apellidoMaterno, direccion, telefono, correoElectronico, observacion) VALUES (".$rut.",".$nombre.",".$apaterno.",".$amaterno.",".$direccion.",".$telefono.",".$correo.",".$observacion.")";
+	$sql = "INSERT INTO lector (rut, nombre, apellidoPaterno, apellidoMaterno, direccion, telefono, correoElectronico, observacion, estado) VALUES (".$rut.",".$nombre.",".$apaterno.",".$amaterno.",".$direccion.",".$telefono.",".$correo.",".$observacion.",".$estado.")";
+	//print_r($sql);
+
 	$result = mysqli_query($conn, $sql);
 	//echo "mensje"; tipo jsons
 	$foo->mensaje = false;

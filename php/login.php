@@ -4,9 +4,9 @@ include "db.php";
 $usuario = $_POST["correo"];
 $contrasena = $_POST["contasena"];
 
-$sql = "SELECT * FROM users WHERE email = '".$usuario."' AND contrasena ='".$contrasena."'";
+$sql = "SELECT * FROM trabajador WHERE correoElectronico = '".$usuario."' AND contrasena ='".$contrasena."'";
 
-//$sql="SELECT * FROM users WHERE email = 'pquezada12@alumnos.utalca.cl'AND contrasena ='s'";
+//$sql="SELECT * FROM trabajador WHERE correoElectronico = 'pato@pato.com' AND contrasena ='1234'";
 $result = mysqli_query($conn, $sql);
 //echo mysqli_num_rows($result);
 
