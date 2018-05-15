@@ -1,0 +1,10 @@
+INSERT INTO `libro` (`ISBN`, `titulo`, `ano`, `edicion`, `autor`) VALUES ('978-987-722-322-4', 'Edipo rey', '1830', '2da Edición', 'Federico García Lorca');
+INSERT INTO `libro` (`ISBN`, `titulo`, `ano`, `edicion`, `autor`) VALUES ('978-987-722-279-1', 'Lolita', '1595', '2da Edición', 'Virginia Woolf');
+INSERT INTO `libro` (`ISBN`, `titulo`, `ano`, `edicion`, `autor`) VALUES ('978-987-1891-20-7', 'Eneida', '1603', '3da Edición', 'Giovanni Boccaccio');
+INSERT INTO `libro` (`ISBN`, `titulo`, `ano`, `edicion`, `autor`) VALUES ('978-987-1891-21-4', 'Pedro Páramo', '1609', '3da Edición', 'Giacomo Leopardi');
+INSERT INTO `libro` (`ISBN`, `titulo`, `ano`, `edicion`, `autor`) VALUES ('978-987-1450-93-0', 'Ramayana', '1886', '3da Edición', 'Vladimir Nabokov');
+INSERT INTO `libro` (`ISBN`, `titulo`, `ano`, `edicion`, `autor`) VALUES ('978-987-1183-68-5', 'Vida y opiniones del caballero Tristram Shandy', '1926', '3da Edición', 'Valmiki');
+INSERT INTO `libro` (`ISBN`, `titulo`, `ano`, `edicion`, `autor`) VALUES ('978-987-1785-09-4', 'Ficciones', '1830', '2da Edición', 'Denis Diderot');
+INSERT INTO `libro` (`ISBN`, `titulo`, `ano`, `edicion`, `autor`) VALUES ('978-85-64421-11-0', 'Saga de Njál', '1796', '2da Edición', 'Albert Camus ');
+INSERT INTO `libro` (`ISBN`, `titulo`, `ano`, `edicion`, `autor`) VALUES ('978-85-7559-153-6', 'Hojas de hierba', '1609', '3da Edición', 'João Guimarães Rosa');
+INSERT INTO `libro` (`ISBN`, `titulo`, `ano`, `edicion`, `autor`) VALUES ('978-987-722-143-5', 'La conciencia de Zeno', '1952', '3da Edición', 'Henrik Ibsen');
