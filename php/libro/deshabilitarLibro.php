@@ -1,29 +1,29 @@
 <?php 
 	include "../db.php";
 	header("Content-Type: application/json; charset=UTF-8");
-	$rut = $_POST["rut"];
+	
+	$codigo = $_POST["codigo"];
 
-	$sql = "SELECT * FROM lector WHERE rut='".$rut."'";
-	//$sql=
+	$sql = "SELECT * FROM libro WHERE codigo=".$codigo;
 	$resultado = mysqli_query($conn, $sql);
 	$foo = new StdClass();
 
 	/**
-		Pregunta si el usuario existe
+		Pregunta si el libro (copia) está habilitado
 	*/
 	if ($resultado->num_rows > 0) {
-		$sql = "SELECT * FROM lector WHERE rut='".$rut."'' AND estado = 'false'";
+		$sql = "SELECT * FROM libro WHERE codigo=".$codigo." AND estado = false";
 		$resultado = mysqli_query($conn, $sql);
 		/**
-			Pregunta si el usuario ya esta deshabilitado
+			Pregunta si el libro (copia) ya esta deshabilitado
 		*/
 		if($resultado->num_rows > 0){
 			$foo->mensaje = false;
-			$foo->mensaje = "El lector ya esta deshabilitado";
+			$foo->mensaje = "La copia ya esta deshabilitada";
 			echo json_encode($foo);
 			
 		}else{
-			$sql = "UPDATE lector SET estado = 'false' WHERE rut = '".$rut."'";
+			$sql = "UPDATE libro SET estado = \"false\" WHERE codigo = ".$codigo;
 			$resultado = mysqli_query($conn, $sql);
 			$foo->mensaje = true;
 			$foo->mensaje = "Se ha modificado exitosamente";
@@ -33,7 +33,7 @@
 	} else
 	{
 		$foo->mensaje = false;
-		$foo->mensaje = "El lector no existe";
+		$foo->mensaje = "El libro no existe";
 		echo json_encode($foo);
 	}
 
