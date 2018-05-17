@@ -32,7 +32,7 @@ else
 {
     //echo "falso"; ->mensaje tipo json
 	//Insert
-	$sql = "INSERT INTO libro (isbn, autor, anio, dewey, titulo, edicion) VALUES ('".$isbn."','".$autor."','".$anio."','".$dewey."','".$titulo."','".$edicion."','','true')";
+	$sql = "INSERT INTO libro (isbn, autor, anio, dewey, titulo, edicion) VALUES ('".$isbn."','".$autor."','".$anio."','".$dewey."','".$titulo."','".$edicion."');"; 
 	//print_r($sql);
 
 	$result = mysqli_query($conn, $sql);
