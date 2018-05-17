@@ -14,7 +14,7 @@
 
 CREATE TABLE biblioteca.trabajador(
   correoElectronico VARCHAR(256),
-  contasena VARCHAR(256),
+  contrasena VARCHAR(256),
   rut VARCHAR(256),
   nombre VARCHAR(256),
   apellidoPaterno VARCHAR(256),
