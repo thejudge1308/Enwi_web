@@ -4,7 +4,7 @@
 	
 	$codigo = $_POST["codigo"];
 
-	$sql = "SELECT * FROM libro WHERE codigo=".$codigo;
+	$sql = "SELECT * FROM copia WHERE codigo=".$codigo.";";
 	$resultado = mysqli_query($conn, $sql);
 	$foo = new StdClass();
 
@@ -12,7 +12,7 @@
 		Pregunta si el libro (copia) está habilitado
 	*/
 	if ($resultado->num_rows > 0) {
-		$sql = "SELECT * FROM libro WHERE codigo=".$codigo." AND estado = false";
+		$sql = "SELECT * FROM copia WHERE codigo=".$codigo." AND estado = "false";";
 		$resultado = mysqli_query($conn, $sql);
 		/**
 			Pregunta si el libro (copia) ya esta deshabilitado
@@ -23,7 +23,7 @@
 			echo json_encode($foo);
 			
 		}else{
-			$sql = "UPDATE libro SET estado = \"false\" WHERE codigo = ".$codigo;
+			$sql = "UPDATE copia SET estado = \"false\" WHERE codigo = ".$codigo.";";
 			$resultado = mysqli_query($conn, $sql);
 			$foo->mensaje = true;
 			$foo->mensaje = "Se ha modificado exitosamente";
@@ -33,7 +33,7 @@
 	} else
 	{
 		$foo->mensaje = false;
-		$foo->mensaje = "El libro no existe";
+		$foo->mensaje = "La copia no existe";
 		echo json_encode($foo);
 	}
 
