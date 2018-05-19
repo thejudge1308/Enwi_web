@@ -1,6 +1,12 @@
 <?php 
+<<<<<<< Updated upstream
+=======
+	include "../db.php";
+	header("Content-Type: application/json; charset=UTF-8");
+>>>>>>> Stashed changes
 
 
+<<<<<<< Updated upstream
 include "../db.php";
 //header("Content-Type: application/json; charset=UTF-8");
 
@@ -26,6 +32,29 @@ else
 	echo json_encode(null);
 }
 
+=======
+	$foo = new StdClass();
+
+	if ($result->num_rows > 0) 
+	{
+	   //echo "true"; ->mensaje tipo json
+		$foo->mensaje = "true";
+		$rows = array();
+		while($r = mysqli_fetch_assoc($result)) {
+			$rows[] = $r;
+		}
+		
+			//$foo=$rows;
+		$foo->datos = $rows;
+		echo json_encode($foo);
+	}
+	//else : enviar mensaej de q se ingreso 
+	else 
+	{
+		$foo->mensaje = "false";
+		echo json_encode($foo);
+	}
+>>>>>>> Stashed changes
 
 	mysqli_close($conn);
 ?>
