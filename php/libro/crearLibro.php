@@ -11,8 +11,8 @@ $titulo = $_POST["titulo"];
 $edicion = $_POST["edicion"];
 
 
-//crear query para obtener ese lector .. Ojo!, cuando es un text debe estar en ' '
-$sql = " SELECT isbn FROM libro  WHERE isbn = '".$isbn."'";
+//crear query para obtener ese libro .. Ojo!, cuando es un text debe estar en ' '
+$sql = " SELECT isbn FROM libro  WHERE isbn = '".$isbn."';";
 
 $result = mysqli_query($conn, $sql);
 ///mysqli_close($conn);
