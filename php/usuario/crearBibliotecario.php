@@ -27,7 +27,7 @@ $foo = new StdClass();
 if (mysqli_num_rows($result)>0) 
 {
    //echo "true"; ->mensaje tipo json
-	$foo->mensaje = true;
+	$foo->mensaje = "true";
 	$foo->mensaje = "El bibliotecario ya existe";
 	echo json_encode($foo);
 }
@@ -42,7 +42,7 @@ else
 	$result = mysqli_query($conn, $sql);
 	
 	//echo "mensje"; tipo jsons
-	$foo->mensaje = false;
+	$foo->mensaje = "false";
 	$foo->mensaje = "Bibliotecario registrado exitosamente";
 	echo json_encode($foo);
 }
