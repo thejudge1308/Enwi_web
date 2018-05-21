@@ -4,7 +4,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 $isbnlibro = $_POST["isbnlibro"];
 
-$sql = "SELECT isbnlibro FROM copia WHERE isbnlibro = ".$isbnlibro."";
+$sql = "SELECT * FROM copia WHERE isbnlibro = '".$isbnlibro."'";
 $result = mysqli_query($conn, $sql);
 $foo = new StdClass();
 
