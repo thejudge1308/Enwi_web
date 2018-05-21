@@ -36,7 +36,7 @@ else
 {
     //echo "falso"; ->mensaje tipo json
 	//Insert
-	$sql = "INSERT INTO trabajador (rut, nombre, apellidoPaterno, apellidoMaterno, direccion, telefono, correoElectronico, contrasena, contactoEmergenciaNombre,contactoEmergenciaTelefono) VALUES ('".$rut."','".$nombre."','".$apaterno."','".$amaterno."','".$direccion."','".$telefono."','".$correo."','".$contrasena."','".$contactoemergencianombre."','".$contactoemergenciatelefono."');";
+	$sql = "INSERT INTO trabajador (rut, nombre, apellidoPaterno, apellidoMaterno, direccion, telefono, correoElectronico, contrasena, contactoEmergenciaNombre,contactoEmergenciaTelefono,tipo) VALUES ('".$rut."','".$nombre."','".$apaterno."','".$amaterno."','".$direccion."','".$telefono."','".$correo."','".$contrasena."','".$contactoemergencianombre."','".$contactoemergenciatelefono."','bib');";
 	//print_r($sql);
 
 	$result = mysqli_query($conn, $sql);
