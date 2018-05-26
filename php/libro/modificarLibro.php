@@ -8,6 +8,7 @@ $titulo = $_POST["titulo"];
 $edicion = $_POST["edicion"];
 $autor = $_POST["autor"];
 $anio = $_POST["anio"];
+$dewey = $_POST["dewey"];
 //crear query para obtener ese lector .. Ojo!, cuando es un text debe estar en ' '
 $sql = " SELECT isbn FROM libro WHERE isbn = '".$isbn."'";
 
@@ -29,7 +30,7 @@ else
 {
     //echo "falso"; ->mensaje tipo json
 	//Modifica los datos
-	$sql = " UPDATE libro SET titulo ='".$titulo."',edicion='".$edicion."', autor='".$autor."', anio ='".$anio."' WHERE isbn = '".$isbn."'";
+	$sql = " UPDATE libro SET titulo ='".$titulo."',edicion='".$edicion."', autor='".$autor."', anio ='".$anio."',dewey='".$dewey."' WHERE isbn = '".$isbn."'";
 	//print_r($sql);
 
 	$result = mysqli_query($conn, $sql);
