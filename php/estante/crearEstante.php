@@ -7,12 +7,12 @@ header("Content-Type: application/json; charset=UTF-8");
 //Agregar atributos: 
 
 $numero = $_POST["numero"];
-$rangoSupDewey = $_POST["rangoSupDewey"];
-$rangoInfDewey = $_POST["rangoInfDewey"];
-$cantNiveles = $_POST["cantNiveles"];
+$rangoSup = $_POST["intervalosup"];
+$rangoInf = $_POST["intervaloinf"];
+$cantidadniveles = $_POST["cantidadniveles"];
 
 //crear query para obtener ese estante .. Ojo!, cuando es un text debe estar en ' '
-$sql = " SELECT numero FROM estante WHERE numero = ".$numero."";
+$sql = " SELECT * FROM estante WHERE numero = ".$numero.";";
 
 $result = mysqli_query($conn, $sql);
 ///mysqli_close($conn);
@@ -32,16 +32,16 @@ else
 {
     //echo "falso"; ->mensaje tipo json
 	//Insert
-	$sql = "INSERT INTO estante (numero, rangoInfDewey, rangoSupDewey, cantNiveles) VALUES (".$numero.",".$rangoInfDewey.",".$apaterno.",".$amaterno.");";
+	$sql = "INSERT INTO estante (numero, intervaloInf, intervaloSup , cantidadniveles) VALUES (".$numero.",".$rangoInf.",".$rangoSup.",".$cantidadniveles.");";
+	$result = mysqli_query($conn, $sql);
+	$codigoestante = mysqli_insert_id($conn);
 	$auxiliar=1;
-	while ($auxiliar<=$cantNiveles)
+	while ($auxiliar<=$cantidadniveles)
 	{
-		$sql = "INSERT INTO nivel (codigo, codigoestante) VALUES (".$auxiliar.",".$codigoestante.")";
+		$sql = "INSERT INTO nivel (codigo, codigoEstante) VALUES (".$auxiliar.",".$codigoestante.")";
+		$result = mysqli_query($conn, $sql);
 		$auxiliar++;
 	}
-	//print_r($sql);
-
-	$result = mysqli_query($conn, $sql);
 	
 	//echo "mensje"; tipo jsons
 	$foo->mensaje = false;
