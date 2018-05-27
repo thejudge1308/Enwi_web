@@ -10,10 +10,13 @@ $amaterno = $_POST["apellidoM"];
 $correo = $_POST["correo"];
 $direccion = $_POST["direccion"];
 $telefono = $_POST["telefono"];
-$comentario = $_POST["comentario"];
+$nombreEmergencia = $_POST["nombreEmergencia"];
+$telefonoEmergencia = $_POST["telefonoEmergencia"];
+$contrasena = $_POST["contrasena"];
+
 
 //crear query para obtener ese lector .. Ojo!, cuando es un text debe estar en ' '
-$sql = " SELECT rut FROM lector WHERE rut = '".$rut."'";
+$sql = " SELECT rut FROM trabajador WHERE rut = '".$rut."'";
 
 $result = mysqli_query($conn, $sql);
 ///mysqli_close($conn);
@@ -33,7 +36,7 @@ else
 {
     //echo "falso"; ->mensaje tipo json
 	//Modifica los datos
-	$sql = " UPDATE lector SET nombre ='".$nombre."',apellidoPaterno='".$apaterno."', apellidoMaterno='".$amaterno."', direccion ='".$direccion."', telefono='".$telefono."', correoElectronico='".$correo."',observacion='".$comentario."' WHERE rut = '".$rut."'";
+	$sql = " UPDATE trabajador SET nombre ='".$nombre."',apellidoPaterno='".$apaterno."', apellidoMaterno='".$amaterno."', direccion ='".$direccion."', telefono='".$telefono."', correoElectronico='".$correo."',contactoEmergenciaNombre='".$nombreEmergencia."', contactoEmergenciaTelefono='".$telefonoEmergencia."',contrasena = '".$contrasena."' WHERE rut = '".$rut."'";
 	//print_r($sql);
 
 	$result = mysqli_query($conn, $sql);
