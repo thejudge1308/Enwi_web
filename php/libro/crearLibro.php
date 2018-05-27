@@ -12,7 +12,7 @@ $edicion = $_POST["edicion"];
 
 
 //crear query para obtener ese libro .. Ojo!, cuando es un text debe estar en ' '
-$sql = " SELECT isbn FROM libro  WHERE isbn = '".$isbn."';";
+$sql = " SELECT * FROM libro  WHERE isbn = '".$isbn."';";
 
 $result = mysqli_query($conn, $sql);
 ///mysqli_close($conn);
@@ -23,7 +23,7 @@ $foo = new StdClass();
 if (mysqli_num_rows($result)>0) 
 {
    //echo "true"; ->mensaje tipo json
-	$foo->mensaje = true;
+	$foo->tipo = "true";
 	$foo->mensaje = "El libro ya existe";
 	echo json_encode($foo);
 }
@@ -38,8 +38,8 @@ else
 	$result = mysqli_query($conn, $sql);
 	
 	//echo "mensje"; tipo jsons
-	$foo->mensaje = false;
-	$foo->mensaje = "Libro registrado exitosamente";
+	$foo->tipo = "false";
+	$foo->mensaje = $sql;
 	echo json_encode($foo);
 }
 
