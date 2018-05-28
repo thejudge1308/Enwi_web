@@ -5,7 +5,6 @@ header("Content-Type: application/json; charset=UTF-8");
 //Estos datos deben coincidir con el otro lado
 $isbnlibro = $_POST["isbnlibro"];
 $estado = $_POST["estado"];
-$ubicacion = $_POST["ubicacion"];
 
 
 ///mysqli_close($conn);
@@ -16,7 +15,7 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 $numerocopia = intval($row[0]) + 1;
 
-$sql = "INSERT INTO copia (isbnlibro, numerocopia,estado,ubicacion) VALUES ('".$isbnlibro."','".$numerocopia."','".$estado."','".$ubicacion."');"; 
+$sql = "INSERT INTO copia (isbnlibro, numerocopia,estado) VALUES ('".$isbnlibro."','".$numerocopia."','".$estado."');"; 
 
 $result = mysqli_query($conn, $sql);
 $foo->mensaje = "false";
