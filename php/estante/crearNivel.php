@@ -3,27 +3,22 @@ include "../db.php";
 header("Content-Type: application/json; charset=UTF-8");
 
 //Estos datos deben coincidir con el otro lado
-$isbn = $_POST["codigo"];
-$autor = $_POST["codigoEstante"];
+$codigo = $_POST["codigo"];
 
+$foo = new StdClass();
 
-//crear query para obtener ese libro .. Ojo!, cuando es un text debe estar en ' '
-/*$sql = " SELECT * FROM nivel  WHERE codigo = '".$codigo."';";
-
+$sql = "SELECT cantidadniveles FROM estante WHERE codigo = ".$codigo.";";
 $result = mysqli_query($conn, $sql);
-///mysqli_close($conn);
-$foo = new StdClass();*/
 
-
+$row = mysqli_fetch_array($result);
+$nivel = intval($row[0]) + 1;
 
 //Insert
-$sql = "INSERT INTO nivel (codigo,codigoEstante) VALUES (".$codigo.",".$codigoEstante.");"; 
-//print_r($sql);
-
+$sql = "INSERT INTO nivel (codigo,codigoEstante) VALUES (".$nivel.",".$codigo.");"; 
 $result = mysqli_query($conn, $sql);
 
 //echo "mensje"; tipo jsons
-$foo->mensaje = false;
+$foo->accion = "true";
 $foo->mensaje = "Nivel creado exitosamente";
 echo json_encode($foo);
 
