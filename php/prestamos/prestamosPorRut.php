@@ -7,11 +7,16 @@ $rut = $_POST["rut"];
 
 $foo = new StdClass();
 
-$sql = "SELECT COUNT(copia.codigo) AS numero FROM copia INNER JOIN (SELECT prestamocopia.codigoCopia AS pcopia FROM prestamocopia INNER JOIN prestamo WHERE prestamo.codigo = prestamocopia.codigoPrestamo AND prestamo.estado = 'Pendiente' AND prestamo.refTrabajador = '".$rut."') AS p WHERE p.pcopia =copia.codigo AND copia.estado = 'Prestado'; "; 
+
+$sql = "SELECT COUNT(prestamocopia.codigoCopia) FROM prestamocopia INNER JOIN prestamo WHERE prestamocopia.codigoPrestamo = prestamo.codigo AND  prestamocopia.estado = 'Pendiente' AND prestamo.refLector = '".$rut."';";
+ 
+
 
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 $resultado = intval($row[0]);
+$foo->salida = $row[0];
+
 
 if ($resultado<=2) 
 {
@@ -21,7 +26,7 @@ if ($resultado<=2)
 //else : enviar mensaej de q se ingreso 
 else 
 {
-	$foo->tipo = "false";
+	$foo->mensaje = "false";
 	echo json_encode($foo);
 }
 

@@ -3,10 +3,11 @@ include "../db.php";
 header("Content-Type: application/json; charset=UTF-8");
 
 //Estos datos deben coincidir con el otro lado
-$codigo = $_POST["codigo"];
+$codigoP = $_POST["codigoPrestamo"];
+$codigoC = $_POST["codigoCopia"];
 $estado = $_POST["estado"];
 //crear query para obtener ese lector .. Ojo!, cuando es un text debe estar en ' '
-$sql = " SELECT codigo FROM copia WHERE codigo = '".$codigo."'";
+$sql = " SELECT codigoPrestamo FROM prestamocopia WHERE prestamocopia.codigoCopia = '".$codigoC."'  AND prestamocopia.codigoPrestamo = '".$codigoP."'";
 
 $result = mysqli_query($conn, $sql);
 ///mysqli_close($conn);
@@ -26,7 +27,7 @@ else
 {
     //echo "falso"; ->mensaje tipo json
 	//Modifica los datos
-	$sql = " UPDATE copia SET estado ='".$estado."' WHERE codigo = '".$codigo."'";
+	$sql = " UPDATE prestamocopia SET estado ='".$estado."' WHERE prestamocopia.codigoPrestamo = '".$codigoP."' AND prestamocopia.codigoCopia = '".$codigoC."'";
 	//print_r($sql);
 
 	$result = mysqli_query($conn, $sql);
