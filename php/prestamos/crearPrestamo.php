@@ -3,7 +3,6 @@ include "../db.php";
 header("Content-Type: application/json; charset=UTF-8");
 
 
-$codigo = $_POST["codigo"];
 $refLector = $_POST["refLector"];
 $refTrabajador = $_POST["refTrabajador"];
 $fechaPrestamo = $_POST["fechaPrestamo"];
@@ -14,14 +13,21 @@ $foo = new StdClass();
 
 //echo "falso"; ->mensaje tipo json
 //Insert
-$sql = "INSERT INTO prestamo (codigo, refLector, refTrabajador, fechaPrestamo, fechaDevolucion) VALUES ('".$codigo."','".$refLector."',".$refTrabajador.",'".$fechaPrestamo."','".$fechaDevolucion."');"; 
-//print_r($sql);
+$sql2 = "SELECT rut FROM trabajador WHERE trabajador.correoElectronico ='".$refTrabajador."'";
+
+$result2 = mysqli_query($conn, $sql2);
+
+$row = mysqli_fetch_array($result2);
+$rut = $row[0];
+
+$sql = "INSERT INTO prestamo (refLector, refTrabajador, fechaPrestamo, fechaDevolucion) VALUES ('".$refLector."','".$rut."','".$fechaPrestamo."','".$fechaDevolucion."');"; 
+
 
 $result = mysqli_query($conn, $sql);
 
 //echo "mensje"; tipo jsons
-$foo->mensaje = false;
-$foo->mensaje = "Préstamo registrado exitosamente";
+$foo->mensaje = "true";
+$foo->codigo = mysqli_insert_id($conn);
 echo json_encode($foo);
 
 
