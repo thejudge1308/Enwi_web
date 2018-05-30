@@ -6,7 +6,7 @@ $rut = $_POST["rut"];
 
 $sql = "SELECT prestamo.codigo as codigoPrestamo, prestamo.fechaPrestamo as fechaPrestamo, prestamo.fechaDevolucion as fechaDevolucion, libro.titulo as tituloLibro, copia.codigo as codigoCopia, prestamo.estado as estadoPrestamo
 	FROM prestamo, prestamoCopia, libro, copia, lector
-	WHERE lector.rut = '".$rut."' AND lector.rut = prestamo.refLector AND prestamo.codigo = prestamoCopia.codigoPrestamo AND prestamoCopia.codigoCopia = copia.codigo AND copia.isbnLibro = libro.isbn AND prestamo.estado = 'pendiente'";
+	WHERE lector.rut = '".$rut."' AND lector.rut = prestamo.refLector AND prestamo.codigo = prestamoCopia.codigoPrestamo AND prestamoCopia.codigoCopia = copia.codigo AND copia.isbnLibro = libro.isbn AND prestamo.estado = 'Pendiente'";
 
 $result = mysqli_query($conn, $sql);
 

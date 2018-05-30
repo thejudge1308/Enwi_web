@@ -6,7 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 $codigo = $_POST["codigo"];
 $estado = $_POST["estado"];
 //crear query para obtener ese lector .. Ojo!, cuando es un text debe estar en ' '
-$sql = " SELECT codigo FROM copia WHERE codigo = '".$codigo."'";
+$sql = " SELECT codigo FROM copia WHERE codigo = ".$codigo."";
 
 $result = mysqli_query($conn, $sql);
 ///mysqli_close($conn);
@@ -26,7 +26,7 @@ else
 {
     //echo "falso"; ->mensaje tipo json
 	//Modifica los datos
-	$sql = " UPDATE copia SET estado ='".$estado."' WHERE codigo = '".$codigo."'";
+	$sql = " UPDATE copia SET estado ='".$estado."' WHERE codigo = ".$codigo."";
 	//print_r($sql);
 
 	$result = mysqli_query($conn, $sql);
