@@ -10,7 +10,7 @@ $estado = $_POST["estado"];
 $foo = new StdClass();
 
 
-$sql = "INSERT INTO prestamocopia (codigoPrestamo, codigoCopia, estado) VALUES (".$codigoPrestamo.",".$codigoCopia.",'".$estado."');"; 
+$sql = "INSERT INTO prestamocopia (codigoPrestamo, codigoCopia) VALUES (".$codigoPrestamo.",".$codigoCopia.");"; 
 //print_r($sql);
 
 $result = mysqli_query($conn, $sql);
