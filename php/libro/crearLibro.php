@@ -39,7 +39,7 @@ else
 	
 	//echo "mensje"; tipo jsons
 	$foo->tipo = "false";
-	$foo->mensaje = $sql;
+	$foo->mensaje = "Libro creado exitosamente";
 	echo json_encode($foo);
 }
 
