@@ -5,9 +5,9 @@ header("Content-Type: application/json; charset=UTF-8");
 //Estos datos deben coincidir con el otro lado
 $codigoEstante = $_POST["codigoEstante"];
 $codigoNivel = $_POST["codigoNivel"];
-$codigoCopia = $_POST["codigo"];
+$codigoCopia = $_POST["codigoCopia"];
 //crear query para obtener ese lector .. Ojo!, cuando es un text debe estar en ' '
-$sql = " SELECT codigo FROM copia WHERE codigo = ".$codigoCopia.";";
+$sql = " SELECT codigo FROM copia WHERE codigo = '".$codigo."'";
 
 $result = mysqli_query($conn, $sql);
 ///mysqli_close($conn);
@@ -27,13 +27,13 @@ else
 {
     //echo "falso"; ->mensaje tipo json
 	//Modifica los datos
-	$sql = " UPDATE copia SET refEstante =".$codigoEstante." ,refNivel=".$codigoNivel." WHERE codigo = ".$codigoCopia.";";
+	$sql = " UPDATE copia SET refEstante ='".$codigoEstante."' ,refNivel='".$codigoNivel."'WHERE codigo = '".$codigoCopia."'";
 	//print_r($sql);
 
 	$result = mysqli_query($conn, $sql);
 	
 	//echo "mensje"; tipo jsons
-	$foo->mensaje = "Estante cambiado exitosamente";
+	$foo->mensaje = "Estado cambiado exitosamente";
 	//$foo->mensaje = "Lector modificado exitosamente";
 	echo json_encode($foo);
 }
