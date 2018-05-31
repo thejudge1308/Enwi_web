@@ -17,7 +17,7 @@ $foo = new StdClass();
 if (mysqli_num_rows($result)<=0) 
 {
    //echo "true"; ->mensaje tipo json
-	$foo->mensaje = "false";
+	$foo->mensaje = "La copia no existe";
 	//$foo->mensaje = "El lector no existe";
 	echo json_encode($foo);
 }
@@ -32,7 +32,7 @@ else
 	$result = mysqli_query($conn, $sql);
 	
 	//echo "mensje"; tipo jsons
-	$foo->mensaje = "true";
+	$foo->mensaje = "El estado se ha modificado con éxito";
 	//$foo->mensaje = "Lector modificado exitosamente";
 	echo json_encode($foo);
 }

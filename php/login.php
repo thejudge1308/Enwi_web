@@ -4,7 +4,7 @@ include "db.php";
 $usuario = $_POST["correo"];
 $contrasena = $_POST["contasena"];
 
-$sql = "SELECT tipo FROM trabajador WHERE correoElectronico = '".$usuario."' AND contrasena = '".$contrasena."';";
+$sql = "SELECT tipo FROM trabajador WHERE correoElectronico = '".$usuario."' AND contrasena = '".$contrasena."' AND estado = 'true';";
 $foo = new StdClass();
 
 //$sql="SELECT tipo FROM trabajador WHERE correoElectronico = 'pato@pato.com' AND contrasena = '1234';";
