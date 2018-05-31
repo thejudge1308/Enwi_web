@@ -4,10 +4,11 @@ header("Content-Type: application/json; charset=UTF-8");
 
 $codigoEstante = $_POST["codigoEstante"];
 
-$sql = "SELECT * FROM nivel WHERE codigoEstante = '".$codigoEstante."'";
+$sql = "SELECT * FROM nivel WHERE codigoEstante = ".$codigoEstante."";
+//error_log($sql, 0);
 $result = mysqli_query($conn, $sql);
 $foo = new StdClass();
-
+//error_log($result->num_rows, 0);
 	if ($result->num_rows > 0) 
 	{
 	   //echo "true"; ->mensaje tipo json

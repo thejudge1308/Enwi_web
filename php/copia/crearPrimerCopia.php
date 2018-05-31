@@ -7,18 +7,16 @@ $isbnlibro = $_POST["isbnlibro"];
 $estado = $_POST["estado"];
 $codigoEstante = $_POST["codigoEstante"];
 $codigoNivel = $_POST["codigoNivel"];
+$numcopia=$_POST["numcopia"];
 
+$numcopia = intval($numcopia);
+$codigoEstante= intval($codigoEstante);
+$codigoNivel = intval($codigoNivel);
 
-///mysqli_close($conn);
 $foo = new StdClass();
 
-$sql = "SELECT COUNT(codigo) FROM copia WHERE isbnlibro = '".$isbnlibro."'' GROUP BY codigo;";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_array($result);
-$numerocopia = intval($row[0]) + 1;
-
-$sql = "INSERT INTO copia (isbnlibro, numerocopia,estado,refEstante,refNivel) VALUES ('".$isbnlibro."','".$numerocopia."','".$estado."','".$codigoEstante."','".$codigoNivel."');"; 
-
+$sql = "INSERT INTO copia (isbnlibro,estado,refEstante,refNivel,numerocopia) VALUES ('".$isbnlibro."','".$estado."',".$codigoEstante.",".$codigoNivel.",".$numcopia.")"; 
+error_log($sql, 0);
 $result = mysqli_query($conn, $sql);
 $foo->mensaje = "false";
 $foo->mensaje = "Copia registrada exitosamente";
