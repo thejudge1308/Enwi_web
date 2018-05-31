@@ -25,8 +25,21 @@ $("#principal_page").on('click', '#buscarLibro', function (){
 
 $("#principal_page").on('click', '#buscarPrestamos', function (){
     var rut = $("#rutUsuario").val();
-    mostrarPrestamos(rut);
+    rut = format(rut);
+
+    if(validate(rut) == true)
+    {
+        mostrarPrestamos(rut);
+    }
+    else
+    {
+        alert("El rut ingresado no es válido");
+        $("#rutUsuario").val(rut);
+        //$("#inicio_button").click();
+    }
+    
 });
+
 
 
 function mostrarLibros(t)
@@ -102,7 +115,7 @@ function mostrarLibros(t)
       else
       {
           alert("El libro no esta disponible");
-          $("#inicio_button").click();
+          $("#buscar_button").click();
       }
       
     })
