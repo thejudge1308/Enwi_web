@@ -183,7 +183,7 @@ function view_buscaRut() {
             '<form>'+
               '<div class="form-row">'+
                 '<div class="col-12 col-md-9 mb-2 mb-md-0">'+
-                  '<input type="Text" id="rutUsuario"class="form-control form-control-lg" placeholder="Ej. 1111111 (sin puntos, guion y digito verificador)">'+
+                  '<input type="Text" id="rutUsuario"class="form-control form-control-lg" placeholder="Ej. 11.111.111-1">'+
                 '</div>'+
                 '<div class="col-12 col-md-3">'+
                   '<button type="button" id="buscarPrestamos" class="btn btn-block btn-lg btn-primary">Consultar</button>'+

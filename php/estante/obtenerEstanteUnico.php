@@ -1,8 +1,8 @@
 <?php 
 include "../db.php";
 header("Content-Type: application/json; charset=UTF-8");
-$numero = $_POST["numero"];
-$sql = " SELECT numero FROM estante WHERE numero = ".$numero."";
+$numero = $_POST["codigo"];
+$sql = " SELECT numero FROM estante WHERE codigo = ".$numero."";
 $result = mysqli_query($conn, $sql);
 $foo = new StdClass();
 

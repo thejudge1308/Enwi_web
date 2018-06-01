@@ -23,6 +23,7 @@ if ($resultado>0) {
 }else{
 	$sql ="DELETE FROM nivel WHERE codigo =".$nivel."  AND codigoEstante = ".$codigo."";
 	$result = mysqli_query($conn, $sql);
+	error_log($sql, 0);
 	$foo->accion = "true";
 	$foo->mensaje = "El nivel se ha eliminado satisfactoriamente";
 }

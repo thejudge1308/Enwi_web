@@ -4,7 +4,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 $titulo = $_POST["titulo"];
 
-$sql = "SELECT libro.titulo AS titulo, libro.autor AS autor, edicion AS edicion , anio AS anio , COUNT(libro.isbn) AS numeroCopias FROM libro INNER JOIN copia WHERE titulo LIKE '".$titulo."' AND copia.isbnlibro = libro.isbn AND copia.estado = 'Habilitado' GROUP BY isbn";
+$sql = "SELECT libro.titulo AS titulo, libro.autor AS autor, edicion AS edicion , anio AS anio , COUNT(libro.isbn) AS numeroCopias FROM libro INNER JOIN copia WHERE titulo LIKE '".$titulo."' AND copia.isbnlibro = libro.isbn AND libro.estado = 'Habilitado' AND copia.estado = 'Habilitado' GROUP BY isbn";
 $result = mysqli_query($conn, $sql);
 
 $foo = new StdClass();
